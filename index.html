@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt & SKU Generator</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .item {
+            margin-top: 15px;
+        }
+
+        .item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .item label {
+            display: inline;
+            font-weight: normal;
+        }
+
+        .quantity {
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #receipt,
+        #skuOutput {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navigation button {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navigation">
+
+        <button py-click="show_receipt">
+            Receipt Generator
+        </button>
+
+        <button py-click="show_sku">
+            SKU Generator
+        </button>
+
+    </div>
+
+    <!-- RECEIPT GENERATOR -->
+
+    <div id="receiptPage">
+
+        <h1>Receipt Generator</h1>
+
+        <label>Customer Name</label>
+        <input type="text" id="customerName" placeholder="Enter your name">
+
+        <label>Contact Number</label>
+        <input type="text" id="contactNumber" placeholder="Enter your contact number">
+
+        <h2>WALKGAL VINYLS BESTSELLERS</h2>
+
+        <div class="item">
+            <input type="checkbox" id="Bangerz">
+            <label for="Bangerz">
+                Bangerz [Miley Cyrus] - ₱4,500
+            </label>
+            <input class="quantity" type="number" id="BangerzQty" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <input type="checkbox" id="BRAT">
+            <label for="BRAT">
+                BRAT [Charli XCX] - ₱2,300
+            </label>
+            <input class="quantity" type="number" id="BRATQty" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <input type="checkbox" id="Prima">
+            <label for="Prima">
+                Prima [Adéla] - ₱2,500
+            </label>
+            <input class="quantity" type="number" id="PrimaQty" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <input type="checkbox" id="DETOUR">
+            <label for="DETOUR">
+                DETOUR (RARE N' DELUXE) [Kim Petras] - ₱1,700
+            </label>
+            <input class="quantity" type="number" id="DETOURQty" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <input type="checkbox" id="Olivia">
+            <label for="Olivia">
+                you seem pretty sad for a girl so in love [Olivia Rodrigo] - ₱3,000
+            </label>
+            <input class="quantity" type="number" id="OliviaQty" min="0" value="0">
+        </div>
+
+        <button py-click="generate_receipt">
+            Generate Receipt
+        </button>
+
+        <div id="receipt"></div>
+
+    </div>
+
+    <!-- SKU GENERATOR -->
+
+    <div id="skuPage" style="display: none;">
+
+        <h1>SKU Generator</h1>
+
+        <label>Category</label>
+        <input type="text" id="category" placeholder="Enter category">
+
+        <label>Product Name</label>
+        <input type="text" id="productName" placeholder="Enter product name">
+
+        <label>Stock Quantity</label>
+        <input type="number" id="stockQuantity" placeholder="Enter stock quantity">
+
+        <button py-click="generate_sku">
+            Generate SKU
+        </button>
+
+        <div id="skuOutput"></div>
+
+    </div>
+
+</div>
+
+<script type="py" src="main.py"></script>
+
+</body>
+</html>
