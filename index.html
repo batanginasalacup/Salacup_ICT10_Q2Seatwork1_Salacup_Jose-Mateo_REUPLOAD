@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Club Verification System</title>
+    
+    <!-- PyScript CDN -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f1ea; /* Warm Beige */
+            color: #333333; /* Dark Charcoal Grey */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border: 1px solid #e2ddd5;
+            border-top: 5px solid #800020; /* Deep Burgundy Header Accent */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 420px;
+            padding: 35px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #800020; /* Burgundy */
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            color: #777777; /* Soft Grey */
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: #555555;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+            font-size: 0.95rem;
+            color: #333333;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #800020;
+            background-color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #800020; /* Burgundy */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #600018; /* Darker Burgundy */
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f8f6f0; /* Soft Light Beige */
+            border-left: 4px solid #800020;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            color: #444444;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ICT Club Checker</h1>
+        <p class="subtitle">Candidate Verification System</p>
+
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter first name">
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter last name">
+        </div>
+
+        <button id="check-btn">VERIFY</button>
+
+        <div class="result-box">
+            <div id="result">Enter details above to check membership status.</div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ICT Club &bull; Seatwork 1 &bull; 2nd Quarter
+    </footer>
+
+    <!-- Load main.py -->
+    <script type="py" src="./main.py" config='{"packages": []}'></script>
+
+</body>
+</html>
